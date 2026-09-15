@@ -123,4 +123,5 @@ binary-arch: build install
 	dh_builddeb
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install configure patch unpatch
+build-arch: build
+.PHONY: build build-arch clean binary-indep binary-arch binary install configure patch unpatch

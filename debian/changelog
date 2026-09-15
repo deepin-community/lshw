@@ -1,8 +1,9 @@
-lshw (02.19.git.2021.06.19.996aaad9c7-2deepin0) unstable; urgency=medium
+lshw (02.19.git.2021.06.19.996aaad9c7-2.1) unstable; urgency=medium
 
-  * No source change upload against GCC 12.
+  * Non-maintainer upload.
+  * debian/rules: added missing target build-arch. (Closes: #1083065)
 
- -- Tianyu Chen <sweetyfish@deepin.org>  Fri, 20 Sep 2024 12:12:41 +0800
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Mon, 21 Oct 2024 14:46:08 -0300
 
 lshw (02.19.git.2021.06.19.996aaad9c7-2) unstable; urgency=medium
 
