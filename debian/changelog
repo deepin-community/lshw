@@ -1,3 +1,9 @@
+lshw (02.19.git.2021.06.19.996aaad9c7-2.1deepin1) unstable; urgency=medium
+
+  * Run dh_installmenu only once.
+
+ -- Tianyu Chen <sweetyfish@deepin.org>  Thu, 22 Oct 2026 14:34:21 +0800
+
 lshw (02.19.git.2021.06.19.996aaad9c7-2.1) unstable; urgency=medium
 
   * Non-maintainer upload.

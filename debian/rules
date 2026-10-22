@@ -82,7 +82,6 @@ binary-indep: build install
 	dh_testroot
 	dh_installdocs
 	dh_installexamples
-	dh_installmenu
 	dh_installcron
 	dh_installman
 	dh_installinfo
