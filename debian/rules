@@ -77,25 +77,15 @@ install: build
 	chmod 644 $(CURDIR)/debian/lshw/usr/share/locale/fr/LC_MESSAGES/lshw.mo
 
 # Build architecture-independent files here.
-binary-indep: build install
-	dh_testdir
-	dh_testroot
-	dh_installdocs
-	dh_installexamples
-	dh_installcron
-	dh_installman
-	dh_installinfo
-	dh_installchangelogs
-	dh_link
-	dh_strip
-	dh_compress
-	dh_fixperms
-	dh_makeshlibs
-	dh_installdeb
-	dh_shlibdeps
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
+# Both binary packages of this source are Architecture: any, so there is
+# nothing to build here. Keeping this target empty matters for reproducibility:
+# dpkg-buildpackage -b runs debian/rules binary, i.e. binary-indep followed by
+# binary-arch. When both targets ran the full dh_* sequence, the second pass
+# found the DEBIAN/control and DEBIAN/md5sums files written by the first pass
+# and counted them in Installed-Size, so the packages produced by -b differed
+# from those produced by -B. Restore the dh_* calls with -i if an Architecture:
+# all package is ever added to debian/control.
+binary-indep:
 
 # We have nothing to do by default.
 
