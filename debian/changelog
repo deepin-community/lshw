@@ -1,3 +1,19 @@
+lshw (02.19.git.2021.06.19.996aaad9c7-2.1deepin2) unstable; urgency=medium
+
+  * Make the build reproducible whatever dpkg-buildpackage mode is used.
+    - Empty the binary-indep target: both binary packages of this source are
+      Architecture: any, so that target has nothing to do.
+    - binary-indep and binary-arch used to run the full dh_* sequence over all
+      packages; on the second pass (dpkg-buildpackage -b) dh_gencontrol
+      rescanned a debian/<pkg>/ tree that still held the DEBIAN/control and
+      DEBIAN/md5sums written by the first pass, inflating Installed-Size by
+      2 KiB (lshw, lshw-dbgsym) and 4 KiB (lshw-gtk, lshw-gtk-dbgsym).
+    - A dpkg-buildpackage -B rebuild runs a single pass, so the resulting
+      packages differed from a -b build (Installed-Size 943/1773 instead of
+      945/1777) and the checksums in the .buildinfo did not match.
+
+ -- lichenggang <lichenggang@uniontech.com>  Thu, 29 Oct 2026 11:07:51 +0800
+
 lshw (02.19.git.2021.06.19.996aaad9c7-2.1deepin1) unstable; urgency=medium
 
   * Run dh_installmenu only once.
