@@ -37,6 +37,7 @@ Depends:
 Recommends:
  menu,
  pciutils,
+ pkexec,
  usbutils,
 Description: graphical information about hardware configuration
  A small tool to provide detailed information on the hardware
