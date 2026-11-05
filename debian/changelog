@@ -1,3 +1,17 @@
+lshw (02.19.git.2021.06.19.996aaad9c7-2.1deepin3) unstable; urgency=medium
+
+  * Use pkexec instead of su-to-root in the lshw-gtk desktop entry.
+    - The menu package that provides su-to-root is not available in the
+      deepin/UOS repositories, so launching "Hardware Lister" from the
+      desktop silently failed with "command not found".
+    - pkexec is shipped by the pkexec package, is always installed on the
+      desktop, asks for the administrator password through the graphical
+      polkit agent and keeps DISPLAY/XAUTHORITY, so the GUI starts as root.
+    - Add Recommends: pkexec to lshw-gtk, since the desktop entry now
+      depends on it.
+
+ -- lichenggang <lichenggang@uniontech.com>  Thu, 05 Nov 2026 10:31:20 +0800
+
 lshw (02.19.git.2021.06.19.996aaad9c7-2.1deepin2) unstable; urgency=medium
 
   * Make the build reproducible whatever dpkg-buildpackage mode is used.
